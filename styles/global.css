@@ -1,0 +1,39 @@
+* {
+    margin: 0px;
+    padding: 0px;
+   
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+}
+
+main {
+    flex-grow: 1; /* Esto hace que el contenido principal ocupe el espacio restante */
+}
+
+.noticias {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 15px;
+}
+
+.card-img-top {
+    max-height: 200px;
+    object-fit: cover;
+}
+
+.noticia-image {
+    max-height: 500px;
+    width: 100%;
+    object-fit: cover;
+}
+
+footer {
+    background-color: aliceblue;
+    position: relative;
+    top: auto;
+}
