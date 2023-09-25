@@ -11,8 +11,8 @@ class noticiasModel {
     } // El constructor crea la conexion a la BD y la guarda en el PDO
 
 
-    public function newNoticia ($titulo, $subtitulo, $descripcion) {
-        $statement = $this->PDO->prepare('INSERT INTO noticias (titulo, subtitulo, descripcion) VALUES ("'.$titulo.'", "'.$subtitulo.'", "'.$descripcion.'")');
+    public function newNoticia ($titulo, $subtitulo, $descripcion, $seccion, $imagen) {
+        $statement = $this->PDO->prepare('INSERT INTO noticias (titulo, subtitulo, descripcion, id_seccion, imagen) VALUES ("'.$titulo.'", "'.$subtitulo.'", "'.$descripcion.'", "'.$seccion.'", "'.$imagen.'")');
         //Statement es una variable donde almacenamos la query que posteriormente ejecutaremos.
         return ($statement->execute()) ? true : false;
         //En este caso es un condicional ternario, retorna el valor final de la ejecucion, si sale exitosa da true sino false.
@@ -21,14 +21,18 @@ class noticiasModel {
 
 
     public function getNoticias () {
-        $statement = $this->PDO->prepare('SELECT * FROM noticias');
+        $statement = $this->PDO->prepare('SELECT noticias.*, secciones.tipo FROM noticias INNER JOIN secciones ON noticias.id_seccion = secciones.id');
 
         return ($statement->execute()) ? $statement->fetchAll(PDO::FETCH_ASSOC) : false;
         //Aqui si mostramos datos ya que cargamos todas las filas y columnas de la tabla noticias
     }
 
     public function getNoticia ($id) {
-        $statement = $this->PDO->prepare('SELECT * FROM noticias WHERE id = '.$id.'');
+        $statement = $this->PDO->prepare('SELECT noticias.*, secciones.*
+        FROM noticias
+        INNER JOIN secciones ON noticias.id_seccion = secciones.id
+        WHERE noticias.id = '.$id.'');
+        // Un inner join hace una interseccion entre las tablas y nos devuelve los datos donde haya una relacion entre tablas.
 
         return ($statement->execute()) ? $statement->fetch() : false;
         //Aqui solamente retorna el fetch de una fila, ya que busca especificamente una fila.
@@ -40,8 +44,6 @@ class noticiasModel {
         return ($statement->execute()) ? true : false;
     }
 
-    
-    
 
     
     

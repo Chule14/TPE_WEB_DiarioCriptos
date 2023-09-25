@@ -24,10 +24,7 @@ echo '
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="/criptonoticias/ingresar">Ingresar</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="/criptonoticias/registrarse">Registrarse</a>
+              <a class="nav-link" aria-current="page" href="/criptonoticias/cerrar">Cerrar Sesion</a>
             </li>
           </ul>
         </div>
