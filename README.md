@@ -8,7 +8,7 @@ El usuario objetivo es el administrador que sube y administra las noticias y el 
 
 ## DER
 
-![DER](DER_CRIPTO_NOTICIAS.png)
+![DER](DER-Cripto-Noticias.png)
 
 
 ## Autores
