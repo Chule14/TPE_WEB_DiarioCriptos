@@ -59,7 +59,7 @@ class noticiasController {
             }
 
             // Intentar subir el archivo si no hubo errores
-            if ($uploadOk == 1) return move_uploaded_file($_FILES["imagen"]["tmp_name"], $target_file);
+            if ($uploadOk == 1) move_uploaded_file($_FILES["imagen"]["tmp_name"], $target_file);
 
             $newNoticia = $this->model->newNoticia($titulo, $subtitulo, $descripcion, $seccion, $target_file);
 

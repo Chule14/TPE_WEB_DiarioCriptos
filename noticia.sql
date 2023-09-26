@@ -40,9 +40,6 @@ CREATE TABLE `noticias` (
 -- Volcado de datos para la tabla `noticias`
 --
 
-INSERT INTO `noticias` (`id`, `titulo`, `subtitulo`, `descripcion`, `id_seccion`, `imagen`) VALUES
-(4, 'Nuevas criptomonedas', 'Lanzamiento de cripto currencias, de la ultima semana', 'Son revolucion del mercado', 1, 'images/35.png');
-
 -- --------------------------------------------------------
 
 --
@@ -83,8 +80,6 @@ CREATE TABLE `usuarios` (
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `nombre`, `apellido`, `email`, `contraseña`, `rol`) VALUES
-(2, 'Santiago', 'Rui', 'San@dev.cc', '81dc9bdb52d04dc20036dbd8313ed055', 'admin');
 
 --
 -- Índices para tablas volcadas
