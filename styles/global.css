@@ -15,21 +15,24 @@ main {
     flex-grow: 1; /* Esto hace que el contenido principal ocupe el espacio restante */
 }
 
+.error {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    margin: 0px auto;
+    width: 50%;
+    justify-items: center;
+}
+
+.error img {
+    width: 250px;
+    height: 250px;
+}
+
 .noticias {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 15px;
-}
-
-.card-img-top {
-    max-height: 200px;
-    object-fit: cover;
-}
-
-.noticia-image {
-    max-height: 500px;
-    width: 100%;
-    object-fit: cover;
 }
 
 footer {

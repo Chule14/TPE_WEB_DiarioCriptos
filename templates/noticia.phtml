@@ -1,0 +1,16 @@
+
+<?php require_once('/xampp/htdocs/criptonoticias/templates/header.phtml'); ?>
+
+    <section class="noticia">
+        <div class="card mb-4">
+            <img src="<?=$noticia['imagen']?>" class="card-img-top">
+            <div class="card-body">
+                <h1 class="card-title"><?=$noticia['titulo']?></h1>
+                <p class="card-text"><?=$noticia['subtitulo']?></p>
+                <p class="card-text">Seccion: <?=$noticia['tipo']?></p>
+            </div>
+        </div>
+      </section>
+
+
+    <?php require_once('/xampp/htdocs/criptonoticias/templates/footer.phtml'); ?>

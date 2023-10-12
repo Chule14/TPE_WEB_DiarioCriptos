@@ -1,0 +1,13 @@
+<?php
+// Pregunta si en la session esta seteado el rol en el array.
+if(isset($_SESSION['rol'])){
+    if($_SESSION['rol'] == 'usuario'){ // Si el rol es usuario muestra la navbar de usuario.
+        require_once('/xampp/htdocs/criptonoticias/components/head/userhead.php');
+    } else if($_SESSION['rol'] == 'admin') { // Si es admin muestra el nav de admin.
+        require_once('/xampp/htdocs/criptonoticias/components/head/adminhead.php');
+    }
+} else {
+    // Si no hay sesión definida, muestra el menú de invitado.
+        require_once('/xampp/htdocs/criptonoticias/components/head/head.php');
+}
+?>
