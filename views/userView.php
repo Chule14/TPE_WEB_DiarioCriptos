@@ -2,7 +2,32 @@
 
 
 class userView {
+<<<<<<< HEAD
     // Este metodo sirve para cargar funciones de exito o de error
+=======
+    // Este metodo sirve para cargar funciones de exito o de error.
+    public function showAlert($msg, $type){
+        if($type == "error"){
+            echo 
+            '
+                <div class="alert alert-danger" role="alert">
+                    <strong>ERROR:</strong> '.$msg.'
+                </div>
+            ';
+        }
+
+        if($type == "success"){
+            echo 
+            '
+                <div class="alert alert-success" role="alert">
+                    <strong>EXITO:</strong> '.$msg.'
+                </div>
+            ';
+        }
+
+    }
+
+>>>>>>> b9cf47e60db9209855a85ed675667503a77343e2
 
     public function renderLoginForm(){
         echo 

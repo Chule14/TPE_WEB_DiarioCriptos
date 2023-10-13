@@ -2,12 +2,31 @@
 
 session_start();
 
+<<<<<<< HEAD
+=======
+// Pregunta si en la session esta seteado el rol en el array.
+if(isset($_SESSION['rol'])){
+    if($_SESSION['rol'] == 'usuario'){ // Si el rol es usuario muestra la navbar de usuario.
+        require_once('C:\xampp\htdocs\CriptoNoticias\components\head\userhead.php');
+    } else if($_SESSION['rol'] == 'admin') { // Si es admin muestra el nav de admin.
+        require_once('C:\xampp\htdocs\CriptoNoticias\components\head\adminhead.php');
+    }
+} else {
+    // Si no hay sesión definida, muestra el menú de invitado.
+    require_once('C:\xampp\htdocs\CriptoNoticias\components\head\head.php');
+}
+>>>>>>> b9cf47e60db9209855a85ed675667503a77343e2
 // Cargamos el Header y Navbar, son contenidos estaticos.
 
 
 // IMPORTAMOS CONTROLADORES
+<<<<<<< HEAD
 require_once('/xampp/htdocs/criptonoticias/controllers/noticiasController.php');
 require_once('/xampp/htdocs/criptonoticias/controllers/userController.php');
+=======
+require_once('C:\xampp\htdocs\CriptoNoticias\controllers\noticiasController.php');
+require_once('C:\xampp\htdocs\CriptoNoticias\controllers\userController.php');
+>>>>>>> b9cf47e60db9209855a85ed675667503a77343e2
 
 // Instanciamos controlador de noticias
 $noticiasController = new noticiasController();
@@ -51,9 +70,12 @@ switch ($params[0]) {
     case 'cerrar':
         $userController->close();
         break;
+<<<<<<< HEAD
     case 'filtrar':
         $noticiasController->renderFiltrado();
         break;
+=======
+>>>>>>> b9cf47e60db9209855a85ed675667503a77343e2
     case 'crear':
         if($_SESSION['rol'] !== 'admin') break;
         $userController->renderCrearNoticias();
@@ -66,4 +88,25 @@ switch ($params[0]) {
         echo 'Error';
 }
 
+<<<<<<< HEAD
 // Cargamos el footer, contenido estatico.
+=======
+// Funcion de error por si sale mal la consulta al router.
+function showError()
+{
+    echo('
+    <div class="container">
+        <div class="error">
+            <img src="images/error.png">
+            <div>
+                <h1 class="fs-2">404</h1>
+                <h2 class="fs-6">Página no encontrada</h2>
+            </div>
+        </div>
+    </div>
+    ');
+}
+
+// Cargamos el footer, contenido estatico.
+require_once('C:\xampp\htdocs\CriptoNoticias\components\foot\foot.php');
+>>>>>>> b9cf47e60db9209855a85ed675667503a77343e2

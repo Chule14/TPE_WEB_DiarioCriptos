@@ -9,7 +9,11 @@ class seccionesModel {
         $conex = $conex->conexion();
         $statement = $conex->prepare('SELECT * FROM secciones');
 
+<<<<<<< HEAD
         return ($statement->execute()) ? $statement->fetchAll(PDO::FETCH_ASSOC) : false;
+=======
+        return ($statement->execute()) ? $statement->fetchAll() : false;
+>>>>>>> b9cf47e60db9209855a85ed675667503a77343e2
     }
     
     

@@ -44,6 +44,7 @@ class noticiasModel {
         return ($statement->execute()) ? true : false;
     }
 
+<<<<<<< HEAD
 
     public function filtrarNoticias ($id) {
         $statement = $this->PDO->prepare('SELECT noticias.*, secciones.tipo FROM noticias INNER JOIN secciones ON noticias.id_seccion = secciones.id WHERE id_seccion = ?');
@@ -51,6 +52,8 @@ class noticiasModel {
         return ($statement->execute([$id])) ? $statement->fetchAll(PDO::FETCH_ASSOC) : false;
     }
 
+=======
+>>>>>>> b9cf47e60db9209855a85ed675667503a77343e2
 
     
     
