@@ -3,18 +3,15 @@
 class userController {
     private $model;
     private $view;
-    private $secciones;
     private $alert;
 
     public function __construct(){
-        require_once('C:\xampp\htdocs\CriptoNoticias\models\userModel.php');
-        require_once('C:\xampp\htdocs\CriptoNoticias\views\userView.php');
-        require_once('/xampp/htdocs/criptonoticias/helper/errorHelper.php');
-        require_once('/xampp/htdocs/criptonoticias/models/seccionesModel.php');
+        include_once 'src/models/userModel.php';
+        include_once 'src/views/userView.php';
+        include_once 'src/helper/errorHelper.php';
         $this->model = new userModel();
         $this->view = new userView();
         $this->alert = new helperError();
-        $this->secciones = new seccionesModel();
     }
 
     // Revisamos que el metodo sea post, y que no haya campos vacios.

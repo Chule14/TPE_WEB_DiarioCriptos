@@ -5,7 +5,7 @@ class seccionesModel {
     private $PDO;
 
     public function __construct () { 
-        require_once('/xampp/htdocs/criptonoticias/config/config.php');
+        include_once 'src/config/config.php';
         $conex = new db(); // Instacia de la clase DB
         $this->PDO = $conex->conexion(); // Metodo conexion.
     } // El constructor crea la conexion a la BD y la guarda en el PDO

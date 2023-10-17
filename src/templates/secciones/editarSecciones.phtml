@@ -1,4 +1,4 @@
-<?php require_once('/xampp/htdocs/criptonoticias/templates/header.phtml'); ?>
+<?php include_once 'src/templates/header.phtml'; ?>
 
 <form class="w-50 mx-auto my-5" action="/criptonoticias/secciones/actualizar/<?= $id ?>" method="POST" enctype="multipart/form-data">
     <div class="mb-3">
@@ -9,4 +9,4 @@
     <button type="submit" class="btn btn-warning w-100">Actualizar seccion</button>
 </form>
 
-<?php require_once('/xampp/htdocs/criptonoticias/templates/footer.phtml'); ?>
+<?php include_once 'src/templates/footer.phtml'; ?>

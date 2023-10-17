@@ -6,7 +6,7 @@ class userModel {
 
     public function __construct()
     {
-        require_once('/xampp/htdocs/criptonoticias/config/config.php');
+        include_once 'src/config/config.php';
         $conex = new db();
         $this->PDO = $conex->conexion();
     }

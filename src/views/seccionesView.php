@@ -5,16 +5,16 @@ class seccionesViews {
 
     public function renderAdministrarSecciones($s){
         $secciones = $s;
-        require('/xampp/htdocs/criptonoticias/templates/secciones/adminsecciones.phtml');
+        include_once 'src/templates/secciones/adminsecciones.phtml';
     }
     
     public function renderCrearSeccion(){
-        require('/xampp/htdocs/criptonoticias/templates/secciones/crearsecciones.phtml');
+        include_once 'src/templates/secciones/crearsecciones.phtml';
     }
 
     public function renderEditarSeccion($i){
         $id = $i;
-        require('/xampp/htdocs/criptonoticias/templates/secciones/editarsecciones.phtml');
+        include_once 'src/templates/secciones/editarsecciones.phtml';
     }
    
 

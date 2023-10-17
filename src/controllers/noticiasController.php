@@ -10,10 +10,10 @@ class noticiasController {
     // El constructor es la funcion ejecutada al instaciar un objeto de clase controlador.
     // Le asigna a las variables model y view un objeto de clase noticiasModel y noticiasView respectivamente.
     public function __construct () {
-        require_once('C:\xampp\htdocs\CriptoNoticias\models\noticiasModel.php');
-        require_once('C:\xampp\htdocs\CriptoNoticias\views\noticiasView.php');
-        require_once('C:\xampp\htdocs\CriptoNoticias\models\seccionesModel.php');
-        require_once('/xampp/htdocs/criptonoticias/helper/errorHelper.php');
+        include_once 'src/models/noticiasModel.php';
+        include_once 'src/views/noticiasView.php';
+        include_once 'src/models/seccionesModel.php';
+        include_once 'src/helper/errorHelper.php';
         $this->model = new noticiasModel();
         $this->view = new noticiasViews();
         $this->secciones = new seccionesModel();

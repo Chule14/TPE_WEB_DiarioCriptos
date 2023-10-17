@@ -5,10 +5,10 @@ session_start();
 
 
 // IMPORTAMOS CONTROLADORES
-require_once('/xampp/htdocs/criptonoticias/controllers/noticiasController.php');
-require_once('/xampp/htdocs/criptonoticias/controllers/userController.php');
-require_once('/xampp/htdocs/criptonoticias/controllers/seccionesController.php');
-require_once('/xampp/htdocs/criptonoticias/helper/errorHelper.php');
+include_once 'src/controllers/noticiasController.php';
+include_once 'src/controllers/userController.php';
+include_once 'src/controllers/seccionesController.php';
+include_once 'src/helper/errorHelper.php';
 
 // Instanciamos controlador de noticias
 $noticiasController = new noticiasController();
