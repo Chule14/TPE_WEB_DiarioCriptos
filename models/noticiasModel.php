@@ -5,7 +5,7 @@ class noticiasModel {
     private $PDO;
 
     public function __construct () { 
-        require_once('C:\xampp\htdocs\CriptoNoticias\config\db.php');
+        require_once('/xampp/htdocs/criptonoticias/config/config.php');
         $conex = new db(); // Instacia de la clase DB
         $this->PDO = $conex->conexion(); // Metodo conexion.
     } // El constructor crea la conexion a la BD y la guarda en el PDO
@@ -44,7 +44,14 @@ class noticiasModel {
         return ($statement->execute()) ? true : false;
     }
 
-<<<<<<< HEAD
+    
+    public function updateNoticia ($id, $titulo, $subtitulo, $descripcion, $seccion) {
+        $statement = $this->PDO->prepare('UPDATE noticias SET titulo = ?, subtitulo = ?, descripcion = ?, id_seccion = ? WHERE id = ?');
+
+        return ($statement->execute([$titulo, $subtitulo, $descripcion, $seccion, $id])) ? true : false;
+    }
+
+
 
     public function filtrarNoticias ($id) {
         $statement = $this->PDO->prepare('SELECT noticias.*, secciones.tipo FROM noticias INNER JOIN secciones ON noticias.id_seccion = secciones.id WHERE id_seccion = ?');
@@ -52,8 +59,6 @@ class noticiasModel {
         return ($statement->execute([$id])) ? $statement->fetchAll(PDO::FETCH_ASSOC) : false;
     }
 
-=======
->>>>>>> b9cf47e60db9209855a85ed675667503a77343e2
 
     
     

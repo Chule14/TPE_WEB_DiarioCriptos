@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-09-2023 a las 16:54:00
+-- Tiempo de generación: 17-10-2023 a las 15:27:56
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `noticias`
 --
+CREATE DATABASE IF NOT EXISTS `noticias` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `noticias`;
 
 -- --------------------------------------------------------
 
@@ -41,7 +43,9 @@ CREATE TABLE `noticias` (
 --
 
 INSERT INTO `noticias` (`id`, `titulo`, `subtitulo`, `descripcion`, `id_seccion`, `imagen`) VALUES
-(4, 'Nuevas criptomonedas', 'Lanzamiento de cripto currencias, de la ultima semana', 'Son revolucion del mercado', 1, 'images/35.png');
+(1, 'Criptomonedas al alza', 'Ultimas noticias del mercado', 'Las criptomonedas con tendencia de alza son BTC, ETH y LTC', 1, 'images/35.png'),
+(2, 'Advertencia sobre hacking y virus maliciosos', 'Ultimas noticias acerca de hackeos y pishing', 'Estafadores que se hacen pasar por grandes empresas para robar credenciales e identidades.', 6, 'images/37.png'),
+(3, 'Donde invertir mi dinero', 'Recomendaciones no profesionales para invertir', 'Informacion de sitios de inversion.', 4, 'images/0103.png');
 
 -- --------------------------------------------------------
 
@@ -60,9 +64,9 @@ CREATE TABLE `secciones` (
 
 INSERT INTO `secciones` (`id`, `tipo`) VALUES
 (1, 'CriptoMonedas'),
-(3, 'Software'),
-(4, 'Inversiones'),
-(5, 'Otros');
+(2, 'Software'),
+(3, 'Inversiones'),
+(4, 'Pishing');
 
 -- --------------------------------------------------------
 
@@ -84,7 +88,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `apellido`, `email`, `contraseña`, `rol`) VALUES
-(2, 'Santiago', 'Rui', 'San@dev.cc', '81dc9bdb52d04dc20036dbd8313ed055', 'admin');
+(1, 'webadmin', 'webadmin', 'webadmin@gmail.com', '$2y$10$4NEgpAzad7fKQd4twyYYnOL4kc2grvyaA/g/JHgZ6T9Qr.CawltJm', 'admin');
 
 --
 -- Índices para tablas volcadas
@@ -116,19 +120,19 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `noticias`
 --
 ALTER TABLE `noticias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `secciones`
 --
 ALTER TABLE `secciones`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

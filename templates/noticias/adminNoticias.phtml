@@ -1,0 +1,45 @@
+<?php require_once('/xampp/htdocs/criptonoticias/templates/header.phtml'); ?>
+
+
+<div class="table-responsive w-50 mx-auto">
+    <h3 class="mb-3">Noticias Creadas</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Titulo</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach($noticias as $noticia) { ?>
+            <tr>
+                <td><?=$noticia['id']?></td>
+                <td><?=$noticia['titulo']?></td>
+                <td class="d-flex gap-2 justify-content-center">
+                    <a class="btn btn-secondary" href="/criptonoticias/noticia/<?=$noticia['id']?>">
+                      <span class="material-symbols-outlined">
+                        visibility
+                      </span>
+                    </a>
+                    <a class="btn btn-primary" href="/criptonoticias/noticias/editar/<?=$noticia['id']?>">
+                      <span class="material-symbols-outlined">
+                        edit
+                      </span>
+                    </a>
+                    <a class="btn btn-danger" href="/criptonoticias/noticias/eliminar/<?=$noticia['id']?>">
+                      <span class="material-symbols-outlined">
+                        delete
+                      </span>
+                    </a>
+                </td>
+            </tr>
+            <?php } ?>
+        </tbody>
+    </table>
+
+    <a href="/criptonoticias/noticias/crear" class="btn btn-primary w-100">Crear nueva noticia</a>
+</div>
+
+
+<?php require_once('/xampp/htdocs/criptonoticias/templates/footer.phtml'); ?>

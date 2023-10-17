@@ -1,7 +1,5 @@
-<?php
-define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
+<?php define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/'); ?>
 
-echo '
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,10 +22,7 @@ echo '
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="/criptonoticias/ingresar">Ingresar</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="/criptonoticias/registrarse">Registrarse</a>
+              <a class="nav-link" aria-current="page" href="/criptonoticias/cerrar">Cerrar Sesion</a>
             </li>
           </ul>
         </div>
@@ -36,6 +31,3 @@ echo '
 </header>
 
 <main class="d-grid align-items-center container mt-5">
-
-
-';

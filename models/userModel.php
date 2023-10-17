@@ -6,7 +6,7 @@ class userModel {
 
     public function __construct()
     {
-        require_once('C:\xampp\htdocs\CriptoNoticias\config\db.php');
+        require_once('/xampp/htdocs/criptonoticias/config/config.php');
         $conex = new db();
         $this->PDO = $conex->conexion();
     }
@@ -18,21 +18,21 @@ class userModel {
     }
 
     public function getUserById($id){
-        $statement = $this->PDO->prepare("SELECT * FROM usuarios WHERE id = '$id'");
+        $statement = $this->PDO->prepare("SELECT * FROM usuarios WHERE id = ?");
 
-        return ($statement->execute()) ? $statement->fetch() : false;
+        return ($statement->execute([$id])) ? $statement->fetch() : false;
     }
 
-    public function getUserByEmail($email){
-        $statement = $this->PDO->prepare("SELECT * FROM usuarios WHERE email = '$email'");
+    public function getUserByName($name){
+        $statement = $this->PDO->prepare("SELECT * FROM usuarios WHERE nombre = ?");
 
-        return ($statement->execute()) ? $statement->fetch() : false;
+        return ($statement->execute([$name])) ? $statement->fetch() : false;
     }
 
     public function deleteUser($id){
-        $statement = $this->PDO->prepare("DELETE FROM usuarios WHERE id = '$id'");
+        $statement = $this->PDO->prepare("DELETE FROM usuarios WHERE id = ?");
 
-        return ($statement->execute()) ? true : false;
+        return ($statement->execute([$id])) ? true : false;
     }
 
 

@@ -1,13 +1,12 @@
-<?php
-define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
+<?php define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/'); ?>
 
-echo '
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/global.css"></link>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Noticias Cripto</title>
     <base href="'.BASE_URL.'">
@@ -24,7 +23,10 @@ echo '
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="/criptonoticias/crear">Crear Noticias</a>
+              <a class="nav-link" aria-current="page" href="/criptonoticias/noticias">Noticias</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="/criptonoticias/secciones">Secciones</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" aria-current="page" href="/criptonoticias/cerrar">Cerrar Sesion</a>
@@ -37,5 +39,3 @@ echo '
 
 <main class="d-grid align-items-center container mt-5">
 
-
-';

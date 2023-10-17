@@ -1,0 +1,27 @@
+<?php require_once('/xampp/htdocs/criptonoticias/templates/header.phtml'); ?>
+
+<form class="w-50 mx-auto" action="registrar" method="POST">
+    <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Escribe tu email">
+    </div>
+
+    <div class="mb-3">
+        <label for="apellido" class="form-label">Apellido</label>
+        <input type="text" class="form-control" name="apellido" id="apellido" placeholder="Escribe tu email">
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="text" class="form-control" name="email" id="email" placeholder="Escribe tu email">
+    </div>
+
+    <div class="mb-3">
+        <label for="contraseña" class="form-label">Contraseña</label>
+        <input type="password" class="form-control" name="contraseña" id="contraseña" placeholder="Escribe tu contraseña">
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100">Registrarse</button>
+</form>
+
+
+<?php require_once('/xampp/htdocs/criptonoticias/templates/footer.phtml'); ?>

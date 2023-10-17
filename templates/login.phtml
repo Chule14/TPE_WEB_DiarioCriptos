@@ -1,0 +1,20 @@
+<?php require_once('/xampp/htdocs/criptonoticias/templates/header.phtml'); ?>
+
+<section class="ingreso">
+    <div class="container-md">
+        <form class="d-flex flex-column gap-3 w-75 mx-auto" action="iniciar" method="POST">
+            <div class="">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" name="nombre" class="form-control" id="nombre" required>
+            </div>
+            <div class="">
+                <label for="contraseña" class="form-label">Contraseña</label>
+                <input type="password" name="contraseña" class="form-control" id="contraseña" required>
+            </div>
+
+            <button type="submit" class="w-100 btn btn-block btn-success">Ingresar</button>
+        </form>
+</section>
+
+
+<?php require_once('/xampp/htdocs/criptonoticias/templates/footer.phtml'); ?>

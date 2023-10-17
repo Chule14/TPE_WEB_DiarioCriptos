@@ -2,21 +2,37 @@
 
 // La clase modelo se comunica con la BD y realiza las consultas
 class seccionesModel {
+    private $PDO;
 
-    public static function getSecciones(){
-        require_once('C:\xampp\htdocs\CriptoNoticias\config\db.php');
+    public function __construct () { 
+        require_once('/xampp/htdocs/criptonoticias/config/config.php');
         $conex = new db(); // Instacia de la clase DB
-        $conex = $conex->conexion();
-        $statement = $conex->prepare('SELECT * FROM secciones');
+        $this->PDO = $conex->conexion(); // Metodo conexion.
+    } // El constructor crea la conexion a la BD y la guarda en el PDO
 
-<<<<<<< HEAD
+    public function getSecciones(){
+        $statement = $this->PDO->prepare('SELECT * FROM secciones');
+
         return ($statement->execute()) ? $statement->fetchAll(PDO::FETCH_ASSOC) : false;
-=======
-        return ($statement->execute()) ? $statement->fetchAll() : false;
->>>>>>> b9cf47e60db9209855a85ed675667503a77343e2
     }
     
+    public function createSeccion($tipo){
+        $statement = $this->PDO->prepare('INSERT INTO secciones(tipo) VALUES(?)');
+
+        return ($statement->execute([$tipo])) ? true : false;
+    }
+
+    public function deleteSeccion($id){
+        $statement = $this->PDO->prepare('DELETE FROM secciones WHERE id = ?');
+
+        return ($statement->execute([$id])) ? true : false;
+    }
     
+    public function updateSeccion($id, $tipo){
+        $statement = $this->PDO->prepare('UPDATE secciones SET tipo = ? WHERE id = ?');
+
+        return ($statement->execute([$tipo, $id])) ? true : false;
+    }
 }
 
 

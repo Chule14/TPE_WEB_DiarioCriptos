@@ -1,0 +1,31 @@
+<?php require_once('/xampp/htdocs/criptonoticias/templates/header.phtml'); ?>
+
+<form class="w-50 mx-auto my-5" action="/criptonoticias/noticias/actualizar/<?= $id ?>" method="POST" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label for="titulo" class="form-label">Titulo</label>
+        <input type="text" class="form-control" name="titulo" id="titulo" placeholder="Escribe un titulo">
+    </div>
+
+    <div class="mb-3">
+        <label for="subtitulo" class="form-label">Subtitulo</label>
+        <input type="text" class="form-control" name="subtitulo" id="subtitulo" placeholder="Escribe un subtitulo">
+    </div>
+
+    <div class="mb-3">
+        <label for="descripcion" class="form-label"></label>
+        <textarea class="form-control" name="descripcion" id="descripcion" rows="6"></textarea>
+    </div>
+
+    <div class="mb-3">
+        <label for="seccion" class="form-label">Seccion</label>
+        <select class="form-select form-select-md" name="seccion" id="seccion">
+            <?php foreach ($secciones as $seccion) { ?>
+                <option value="<?= $seccion['id'] ?>"><?= $seccion['tipo'] ?></option>;
+            <?php } ?>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-warning w-100">Editar noticia</button>
+</form>
+
+<?php require_once('/xampp/htdocs/criptonoticias/templates/footer.phtml'); ?>

@@ -1,36 +1,20 @@
 <?php
-
+// Iniciamos Session, ya que el route es la primera "pagina" visitada al entrar.
 session_start();
 
-<<<<<<< HEAD
-=======
-// Pregunta si en la session esta seteado el rol en el array.
-if(isset($_SESSION['rol'])){
-    if($_SESSION['rol'] == 'usuario'){ // Si el rol es usuario muestra la navbar de usuario.
-        require_once('C:\xampp\htdocs\CriptoNoticias\components\head\userhead.php');
-    } else if($_SESSION['rol'] == 'admin') { // Si es admin muestra el nav de admin.
-        require_once('C:\xampp\htdocs\CriptoNoticias\components\head\adminhead.php');
-    }
-} else {
-    // Si no hay sesión definida, muestra el menú de invitado.
-    require_once('C:\xampp\htdocs\CriptoNoticias\components\head\head.php');
-}
->>>>>>> b9cf47e60db9209855a85ed675667503a77343e2
-// Cargamos el Header y Navbar, son contenidos estaticos.
 
 
 // IMPORTAMOS CONTROLADORES
-<<<<<<< HEAD
 require_once('/xampp/htdocs/criptonoticias/controllers/noticiasController.php');
 require_once('/xampp/htdocs/criptonoticias/controllers/userController.php');
-=======
-require_once('C:\xampp\htdocs\CriptoNoticias\controllers\noticiasController.php');
-require_once('C:\xampp\htdocs\CriptoNoticias\controllers\userController.php');
->>>>>>> b9cf47e60db9209855a85ed675667503a77343e2
+require_once('/xampp/htdocs/criptonoticias/controllers/seccionesController.php');
+require_once('/xampp/htdocs/criptonoticias/helper/errorHelper.php');
 
 // Instanciamos controlador de noticias
 $noticiasController = new noticiasController();
 $userController = new userController();
+$seccionesController = new seccionesController();
+$helper = new helperError();
 
 
 // leemos la accion que viene por parametro
@@ -53,15 +37,20 @@ switch ($params[0]) {
         if (isset($params[1])) $id = $params[1];
         $noticiasController->showNoticia($id);
         break;
+    case 'filtrar':
+        $noticiasController->renderFiltrado();
+        break; 
+
+    // Aqui estan las rutas referidas a las sesiones  y registros.
     case 'ingresar':
-        if (isset($_SESSION['rol'])) break; // Esto previene que accedan a una sesion con una sesion ya iniciada.
+        if (isset($_SESSION['rol'])) header("Location: inicio"); // Esto previene que accedan a una sesion con una sesion ya iniciada.
         $userController->renderLoginForm();
         break;
     case 'iniciar': // Aqui es donde el formulario envia los datos de sesion
         $userController->loginUser();
         break;
     case 'registrarse':
-        if (isset($_SESSION['rol'])) break; // Esto previene que creen un usuario desde una sesion iniciada
+        if (isset($_SESSION['rol'])) header("Location: inicio"); // Esto previene que creen un usuario desde una sesion iniciada
         $userController->renderRegisterForm();
         break;
     case 'registrar': // Aqui el formulario envia los datos de registro.
@@ -70,43 +59,42 @@ switch ($params[0]) {
     case 'cerrar':
         $userController->close();
         break;
-<<<<<<< HEAD
-    case 'filtrar':
-        $noticiasController->renderFiltrado();
+   
+    // Enrutado de Noticias
+
+    case 'noticias':
+        // Si no tiene rol admin, deniega acceso.
+        if ($_SESSION['rol'] !== 'admin') header("Location: inicio");
+        if (isset($params[1])) {
+            if(isset($params[2])) $id = $params[2]; // Pregunta si hay parametro 2 y lo guarda.
+            if($params[1] === 'crear') $noticiasController->renderCrearNoticia();
+            if($params[1] === 'nueva') $noticiasController->newNoticia();
+            if($params[1] === 'editar') $noticiasController->renderEditarNoticia($id);
+            if($params[1] === 'actualizar') $noticiasController->updateNoticia($id);
+            if($params[1] === 'eliminar') $noticiasController->deleteNoticia($id);
+        } else 
+        // Si no encuentra parametro 1, renderiza la pagina de administrar noticias.
+            $noticiasController->renderAdministrarNoticias();
         break;
-=======
->>>>>>> b9cf47e60db9209855a85ed675667503a77343e2
-    case 'crear':
-        if($_SESSION['rol'] !== 'admin') break;
-        $userController->renderCrearNoticias();
+
+    // Enrutado de seccionado
+    case 'secciones':
+        if ($_SESSION['rol'] !== 'admin') header("Location: inicio");
+        if (isset($params[1])) {
+            if(isset($params[2])) $id = $params[2]; // Pregunta si hay parametro 2 y lo guarda.
+            if($params[1] === 'crear') $seccionesController->renderCrearSeccion();
+            if($params[1] === 'nueva') $seccionesController->newSeccion();
+            if($params[1] === 'editar') $seccionesController->renderEditarSeccion($id);
+            if($params[1] === 'actualizar') $seccionesController->updateSeccion($id);
+            if($params[1] === 'eliminar') $seccionesController->deleteSeccion($id);
+        } else 
+        // Si no encuentra parametro 1, renderiza la pagina de administrar noticias.
+            $seccionesController->renderAdministrarSecciones();
         break;
-    case 'nueva':
-        if($_SESSION['rol'] !== 'admin') break;
-        $noticiasController->newNoticia();
-        break;
+
     default:
-        echo 'Error';
-}
-
-<<<<<<< HEAD
-// Cargamos el footer, contenido estatico.
-=======
-// Funcion de error por si sale mal la consulta al router.
-function showError()
-{
-    echo('
-    <div class="container">
-        <div class="error">
-            <img src="images/error.png">
-            <div>
-                <h1 class="fs-2">404</h1>
-                <h2 class="fs-6">Página no encontrada</h2>
-            </div>
-        </div>
-    </div>
-    ');
+    //Si no encuentra la URL o no tiene ruta y controlador definido muestra error.
+        $helper->showAlert("Esta pagina no existe", "danger");
 }
 
 // Cargamos el footer, contenido estatico.
-require_once('C:\xampp\htdocs\CriptoNoticias\components\foot\foot.php');
->>>>>>> b9cf47e60db9209855a85ed675667503a77343e2

@@ -1,0 +1,40 @@
+<?php require_once('/xampp/htdocs/criptonoticias/templates/header.phtml'); ?>
+
+
+<div class="table-responsive w-50 mx-auto">
+    <h3 class="mb-3">Secciones Creadas</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach($secciones as $seccion) { ?>
+            <tr>
+                <td><?=$seccion['id']?></td>
+                <td><?=$seccion['tipo']?></td>
+                <td class="d-flex gap-2 justify-content-center">
+                    <a class="btn btn-primary" href="/criptonoticias/secciones/editar/<?=$seccion['id']?>">
+                      <span class="material-symbols-outlined">
+                        edit
+                      </span>
+                    </a>
+                    <a class="btn btn-danger" href="/criptonoticias/secciones/eliminar/<?=$seccion['id']?>">
+                      <span class="material-symbols-outlined">
+                        delete
+                      </span>
+                    </a>
+                </td>
+            </tr>
+            <?php } ?>
+        </tbody>
+    </table>
+
+    <a href="/criptonoticias/secciones/crear" class="btn btn-primary w-100">Crear nueva seccion</a>
+</div>
+
+
+<?php require_once('/xampp/htdocs/criptonoticias/templates/footer.phtml'); ?>
